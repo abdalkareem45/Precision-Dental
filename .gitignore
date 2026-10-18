@@ -1,0 +1,36 @@
+# Dependencies and generated output, at any depth
+node_modules/
+dist/
+build/
+.build-sources/
+_site/
+.vite/
+.vite.pages.config.mts
+*.tsbuildinfo
+npm-debug.log*
+*.log
+
+# Local secrets (never put private API keys in browser builds)
+.env
+.env.*
+!.env.example
+
+# Editor/OS metadata
+.DS_Store
+Thumbs.db
+
+# Original archives and unmodified duplicate extractions (keep backups outside Git)
+/*.zip
+/endo-2-/
+/pros/
+/endo-1-main/endo-1-main/
+
+# npm package-lock.json is the authoritative lockfile
+bun.lock
+bun.lockb
+.aistudio/
+__pycache__/
+*.pyc
+
+# Keep all nine active source trees and their npm lockfiles tracked.
+# Only _site/ is uploaded to GitHub Pages.

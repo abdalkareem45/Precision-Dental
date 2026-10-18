@@ -1,0 +1,6 @@
+{
+  "name": "Perio3D Iraq — Interactive 3D Periodontics Platform",
+  "description": "Interactive 3D dental periodontology platform for senior students, featuring 3D anatomy & probing simulator, EFP 2018 staging/grading calculator, stepwise treatment workflows, clinical exam simulator, and Iraqi board prep.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

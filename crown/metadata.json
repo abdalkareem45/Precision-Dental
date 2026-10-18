@@ -1,0 +1,6 @@
+{
+  "name": "Fixed Partial Dentures Study Companion — Lectures 1, 2 & 3",
+  "description": "Interactive dental prosthodontics lectures covering Crown & Bridge fundamentals, abutment evaluation, periodontal support, and Ante's Law with calculators and quizzes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

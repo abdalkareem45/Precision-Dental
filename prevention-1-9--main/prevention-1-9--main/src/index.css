@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-navy: #0B1F4D;
+    --brand-blue: #1B3A8C;
+    --brand-gold: #C9A24B;
+    --brand-gold-light: #DFBE72;
+    --brand-ivory: #FAF8F3;
+    --brand-marble: #E6E8EC;
+  }
+
+  body {
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    background-color: #FAF8F3;
+    color: #0B1F4D;
+    overflow-x: hidden;
+  }
+
+  .font-arabic {
+    font-family: 'Tajawal', system-ui, sans-serif;
+  }
+}
+
+/* Custom scrollbars for clean lecture navigation */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A24B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9F7B28;
+}
+
+/* Gold gradient text helper */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #DFBE72 0%, #C9A24B 50%, #A88126 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #DFBE72 0%, #C9A24B 50%, #A88126 100%);
+}
+
+.border-gold-subtle {
+  border-color: rgba(201, 162, 75, 0.35);
+}
+

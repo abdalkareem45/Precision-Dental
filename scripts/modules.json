@@ -1,0 +1,11 @@
+[
+  { "name": "Crown & Bridge", "directory": "f367df11cf62a3147e0a171e3f35c4a0333a68f9", "source": "crown" },
+  { "name": "Endodontics", "directory": "endo-1-main", "source": "endo-1-main" },
+  { "name": "Oral Surgery", "directory": "fe3afe4e5c5b6834c6eebbbcda33fefa5ca06160", "source": "oral surgery" },
+  { "name": "Oral Medicine", "directory": "oral-med-12-main", "source": "oral-med-12-main/oral-med-12-main" },
+  { "name": "Orthodontics", "directory": "8666a648e8a3f5a983a00b19e5cc39db2ef0d29c", "source": "orthodontics-main/orthodontics-main" },
+  { "name": "Pediatric Dentistry", "directory": "40b5e7081aa8886e9b639e3dff92927c51b00497", "source": "peidatiric-10-main/peidatiric-10-main" },
+  { "name": "Periodontics", "directory": "perio-1-2-3-4-5-6-7-8--main", "source": "perio-1-2-3-4-5-6-7-8--main/perio-1-2-3-4-5-6-7-8--main" },
+  { "name": "Preventive Dentistry", "directory": "prevention-main", "source": "prevention-1-9--main/prevention-1-9--main" },
+  { "name": "Prosthodontics", "directory": "pros-main", "source": "pros-main" }
+]

@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom scrollbars for tablet & mobile sleekness */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ede4;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a24b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1b3a8c;
+}
+
+/* Gold shimmer gradient */
+.gold-shimmer {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #c9a24b 100%);
+}
+
+.navy-gold-gradient {
+  background: linear-gradient(135deg, #0B1F4D 0%, #1B3A8C 100%);
+}

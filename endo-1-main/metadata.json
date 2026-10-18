@@ -1,0 +1,6 @@
+{
+  "name": "EndoBlueprint 3D: Architectural Tooth & Endodontic Diagnostic Explorer",
+  "description": "Interactive real-time 3D blueprint visualizer of complex internal tooth architecture, root canals, periapical structures, and clinical endodontic diagnostic tests from Lecture 1.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

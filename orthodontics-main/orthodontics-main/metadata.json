@@ -1,0 +1,6 @@
+{
+  "name": "Precision Dental Orthodontics Academy",
+  "description": "Interactive 3D & 2D Orthodontic Learning Suite covering History, Clinical Examination, and Occlusion principles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

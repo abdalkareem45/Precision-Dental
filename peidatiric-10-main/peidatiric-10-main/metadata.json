@@ -1,0 +1,6 @@
+{
+  "name": "Precision Dental - Pediatric Dentistry Interactive Atlas",
+  "description": "Interactive 3D and 2D visual learning platform for pediatric dentistry, dental trauma, behavioral pedodontics, and systemic diseases based on Baghdad College of Dentistry 5th Year curriculum.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

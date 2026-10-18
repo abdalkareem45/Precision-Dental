@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launch Subject | Precision Dental</title>
+</head>
+<body>
+  <main>
+    <h1>Precision Dental</h1>
+    <p id="status" role="status">Opening your subject…</p>
+    <p><a href="./index.html">Return to all subjects</a></p>
+    <noscript>Enable JavaScript to open an interactive subject.</noscript>
+  </main>
+  <script>
+    const allowedSubjects = new Set([
+      'f367df11cf62a3147e0a171e3f35c4a0333a68f9',
+      'endo-1-main',
+      'fe3afe4e5c5b6834c6eebbbcda33fefa5ca06160',
+      'oral-med-12-main',
+      '8666a648e8a3f5a983a00b19e5cc39db2ef0d29c',
+      '40b5e7081aa8886e9b639e3dff92927c51b00497',
+      'perio-1-2-3-4-5-6-7-8--main',
+      'prevention-main',
+      'pros-main'
+    ]);
+    const launchCode = new URLSearchParams(window.location.search).get('id');
+    if (allowedSubjects.has(launchCode)) {
+      window.location.replace(new URL(`./${launchCode}/index.html`, window.location.href).href);
+    } else {
+      document.getElementById('status').textContent = 'Unknown or missing subject. Please select a subject from the home page.';
+    }
+  </script>
+</body>
+</html>

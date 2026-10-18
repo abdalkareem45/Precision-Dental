@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-blue: #1B3A8C;
+  --color-royal-blue-hover: #142c6c;
+  --color-royal-blue-light: #2449ab;
+  --color-deep-navy: #0B1F4D;
+  --color-deep-navy-light: #102a6b;
+  --color-deep-navy-dark: #071433;
+  --color-precision-gold: #C9A24B;
+  --color-precision-gold-hover: #b48e3a;
+  --color-precision-gold-light: #dfbe6e;
+  --color-precision-gold-pale: #fbf7ee;
+  --color-ivory-white: #FAF8F3;
+  --color-ivory-card: #FFFFFF;
+  --color-marble-grey: #E6E8EC;
+  --color-marble-grey-dark: #cbd0d8;
+  --color-marble-grey-darker: #9aa3b2;
+
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-arabic: 'Tajawal', 'Montserrat', sans-serif;
+}
+
+:root {
+  --brand-royal-blue: #1B3A8C;
+  --brand-deep-navy: #0B1F4D;
+  --brand-precision-gold: #C9A24B;
+  --brand-ivory-white: #FAF8F3;
+  --brand-marble-grey: #E6E8EC;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0B1F4D;
+  color: #FAF8F3;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arabic typography support with RTL capability */
+.font-arabic {
+  font-family: 'Tajawal', sans-serif;
+}
+
+[dir="rtl"], .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(201, 162, 75, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(201, 162, 75, 0.7);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glow-gold {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Custom scrollbars matching Marble Grey & Deep Navy */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1F4D;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B3A8C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A24B;
+}

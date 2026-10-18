@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-navy-dark: #071330;
+    --brand-navy: #0B1F4D;
+    --brand-royal: #1B3A8C;
+    --brand-royal-light: #2563EB;
+    --brand-gold: #C9A24B;
+    --brand-gold-light: #DFC17B;
+    --brand-gold-dark: #A58230;
+    --brand-ivory: #FAF8F3;
+    --brand-marble: #E6E8EC;
+  }
+
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #071330;
+    color: #FAF8F3;
+  }
+}
+
+.font-arabic {
+  font-family: 'Tajawal', -apple-system, sans-serif;
+}
+
+/* Ultra-luxury deep midnight canvas with soft gold particle & celestial mesh */
+.bg-luxury-navy {
+  background-color: #071330;
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(201, 162, 75, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 15% 90%, rgba(27, 58, 140, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(11, 31, 77, 0.8) 0%, #071330 100%);
+  background-attachment: fixed;
+}
+
+/* Frosted glass container */
+.glass-panel {
+  background: rgba(11, 31, 77, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 75, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-subtle {
+  background: rgba(15, 38, 92, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 75, 0.15);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 162, 75, 0.45);
+  box-shadow: 0 12px 36px 0 rgba(201, 162, 75, 0.12);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F3DFC7 0%, #DFC17B 35%, #C9A24B 70%, #9F7622 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #DFC17B 0%, #C9A24B 60%, #A58230 100%);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 20px rgba(201, 162, 75, 0.2);
+}
+
+/* Custom sleek gold scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #071330;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A24B;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DFC17B;
+}

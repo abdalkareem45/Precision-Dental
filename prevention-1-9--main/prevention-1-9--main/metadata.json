@@ -1,0 +1,6 @@
+{
+  "name": "Precision Dental: 3D Preventive Dentistry Academy",
+  "description": "Interactive 3D and 2D clinical learning suite for Preventive Dentistry with anatomical models, procedural step simulations, and clinical decision tools based on Precision Dental standards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Precision Dental — ACP Classification Interactive Lab",
+  "description": "Interactive diagnostic lab and study environment for complete edentulism classification (Lecture 1)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

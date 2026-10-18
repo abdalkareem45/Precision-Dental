@@ -1,0 +1,72 @@
+name: Deploy Precision Dental to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Set up npm with explicit dependency script policies
+        run: npm install --global npm@11.19.1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install build and browser test tools
+        run: npm ci --prefix scripts --no-audit --no-fund
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Validate extracted module sources
+        run: python scripts/prepare-modules.py
+      - name: Install and build all nine modules
+        run: node scripts/build-pages.mjs
+      - name: Type-check maintained subject apps
+        run: |
+          npm --prefix endo-1-main run lint
+          npm --prefix pros-main run lint
+      - name: Audit maintained apps and build tools
+        run: |
+          npm audit --prefix endo-1-main --audit-level=high
+          npm audit --prefix pros-main --audit-level=high
+          npm audit --prefix scripts --audit-level=high
+      - name: Verify production output and navigation
+        run: node --test scripts/module-source.test.mjs scripts/dependency-fixes.test.mjs scripts/vite-pages-options.test.mjs scripts/pages.test.mjs
+
+      - name: Install test browser
+        run: node scripts/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Test all subject entries and Endodontics interactions
+        run: node --test scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs
+      - name: Upload static production site only
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

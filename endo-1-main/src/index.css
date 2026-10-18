@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-blue: #1B3A8C;
+  --color-royal-blue-hover: #2348A8;
+  --color-deep-navy: #0B1F4D;
+  --color-deep-navy-light: #122B68;
+  --color-precision-gold: #C9A24B;
+  --color-precision-gold-hover: #D8B25B;
+  --color-precision-gold-light: #F4E7C5;
+  --color-ivory-white: #FAF8F3;
+  --color-marble-grey: #E6E8EC;
+  --color-marble-grey-dark: #CDD1DA;
+
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-headings: 'Montserrat', sans-serif;
+  --font-arabic: 'Tajawal', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-arabic {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+/* Custom scrollbars with brand accent styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 31, 77, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 75, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 162, 75, 0.65);
+}
+

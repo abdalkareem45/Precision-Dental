@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Tajawal:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #1B3A8C;
+  --color-brand-navy: #0B1F4D;
+  --color-brand-gold: #C9A24B;
+  --color-brand-ivory: #FAF8F3;
+  --color-brand-marble: #E6E8EC;
+  --color-brand-cloud: #EEF3FF;
+  --font-display: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-arabic: 'Tajawal', sans-serif;
+}
+
+@layer base {
+  :root {
+    --brand-blue: #1B3A8C;
+    --brand-navy: #0B1F4D;
+    --brand-gold: #C9A24B;
+    --brand-ivory: #FAF8F3;
+    --brand-marble: #E6E8EC;
+    --brand-cloud: #EEF3FF;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Montserrat', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    background: var(--brand-cloud);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--brand-cloud);
+    color: var(--brand-navy);
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.brand-card {
+  background: var(--brand-ivory);
+  border: 1px solid var(--brand-marble);
+  color: var(--brand-navy);
+  box-shadow: 0 12px 30px rgba(11, 31, 77, 0.08);
+}
+
+.brand-primary-button {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+}
+
+.brand-primary-button:hover {
+  background: #d6b45f;
+}
+
+.brand-blue-button {
+  background: var(--brand-blue);
+  color: var(--brand-ivory);
+}
+
+.brand-blue-button:hover {
+  background: #2449a5;
+}
+
+.brand-focus:focus-visible {
+  outline: 3px solid rgba(201, 162, 75, 0.5);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for dense clinical decks */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}

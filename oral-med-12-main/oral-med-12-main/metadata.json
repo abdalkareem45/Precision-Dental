@@ -1,0 +1,6 @@
+{
+  "name": "Oral Medicine Explorer: Ulcerative, Vesicular & Bullous Lesions",
+  "description": "Interactive multi-sensory educational platform and 3D simulation suite for studying Oral Medicine Lectures 1 & 2: Clinical Morphology, HSV, VZV, CMV, Coxsackievirus, NUG/NUP, Erythema Multiforme, SJS/TEN, and Plasma Cell Stomatitis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

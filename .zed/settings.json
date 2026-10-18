@@ -1,0 +1,23 @@
+{
+  "languages": {
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-intellisense-css",
+        "!vscode-css-language-server",
+        "..."
+      ]
+    }
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "tsdk": "./endo-1-main/node_modules/typescript/lib"
+        },
+        "vtsls": {
+          "autoUseWorkspaceTsdk": false
+        }
+      }
+    }
+  }
+}

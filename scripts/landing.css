@@ -1,0 +1,13 @@
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../lunch.js";
+
+@theme {
+  --color-royalBlue: #1B3A8C;
+  --color-deepNavy: #0B1F4D;
+  --color-precisionGold: #C9A24B;
+  --color-ivoryWhite: #FAF8F3;
+  --color-marbleGrey: #E6E8EC;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-arabic: 'Tajawal', sans-serif;
+}
