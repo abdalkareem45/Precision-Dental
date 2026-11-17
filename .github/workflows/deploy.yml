@@ -53,8 +53,9 @@ jobs:
 
       - name: Install test browser
         run: node scripts/node_modules/playwright/cli.js install --with-deps chromium
+      # Software-rendered WebGL suites share the runner CPU; avoid competing browsers.
       - name: Test subjects and Endodontics and Orthodontics interactions
-        run: node --test scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs
+        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs
       - name: Upload static production site only
         uses: actions/upload-pages-artifact@v3
         with:

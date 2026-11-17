@@ -114,7 +114,7 @@ async function exerciseQuiz(page, meta) {
   assert.equal(await quiz.getByRole('button', { name: 'Check Answers', exact: true }).isEnabled(), true);
 }
 
-test('Orthodontics lectures 4–7 work on desktop and mobile under a repository prefix', { timeout: 120_000 }, async t => {
+test('Orthodontics lectures 4–7 work on desktop and mobile under a repository prefix', { timeout: 180_000 }, async t => {
   const metadata = await quizMetadata();
   const server = await startPreviewServer();
   t.after(server.close);
@@ -126,8 +126,8 @@ test('Orthodontics lectures 4–7 work on desktop and mobile under a repository 
     await t.test(`${viewport.width}px: content, quizzes, controls and navigation`, async () => {
       const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
       const page = await context.newPage();
-      page.setDefaultTimeout(8_000);
-      page.setDefaultNavigationTimeout(15_000);
+      page.setDefaultTimeout(30_000);
+      page.setDefaultNavigationTimeout(30_000);
       const errors = [];
       const warnings = [];
       page.on('pageerror', error => errors.push(error.stack || error.message));
