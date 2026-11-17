@@ -68,6 +68,16 @@ test('Endodontics advertises both integrated lectures', () => {
   assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'endo-1-main').lectures", context), 2);
 });
 
+test('Orthodontics advertises all seven integrated lectures', () => {
+  const context = {
+    document: { getElementById: () => ({ innerHTML: '' }) },
+    window: { location: { href: '' } }
+  };
+  vm.createContext(context);
+  vm.runInContext(launcher, context);
+  assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === '8666a648e8a3f5a983a00b19e5cc39db2ef0d29c').lectures", context), 7);
+});
+
 test('redirects retain the GitHub Pages repository prefix', () => {
   for (const module of modules) {
     assert.equal(redirect(module.directory).destination,

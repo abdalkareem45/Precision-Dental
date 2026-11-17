@@ -1,0 +1,26 @@
+.ortho-04-07 {
+  color-scheme: light;
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+.ortho-04-07 section[id] {
+  scroll-margin-top: 12rem;
+}
+
+.ortho-04-07 :where(button, a, input, select, [tabindex]):focus-visible {
+  outline: 2px solid #1b3a8c;
+  outline-offset: 3px;
+}
+
+.ortho-04-07 :where(svg [role='button']):focus-visible {
+  outline-color: #c9a24b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ortho-04-07 :where(*) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

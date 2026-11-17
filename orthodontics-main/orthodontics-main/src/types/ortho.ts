@@ -6,7 +6,11 @@
 export type LectureTab = 
   | 'overview' 
   | 'lecture1_2' 
-  | 'lecture3' 
+  | 'lecture3'
+  | 'lecture-4'
+  | 'lecture-5'
+  | 'lecture-6'
+  | 'lecture-7'
   | '3d_lab' 
   | 'cases' 
   | 'quiz';

@@ -562,10 +562,12 @@ export const ThreeDentalArchScene: React.FC<ThreeDentalArchSceneProps> = ({
     resizeObserver.observe(container);
 
     let animationId: number;
-    let clock = new THREE.Clock();
+    const timer = new THREE.Timer();
+    timer.connect(document);
 
     const tick = () => {
-      const delta = Math.min(clock.getDelta(), 0.1);
+      timer.update();
+      const delta = Math.min(timer.getDelta(), 0.1);
       const state = sceneStateRef.current;
 
       if (state) {
@@ -603,6 +605,7 @@ export const ThreeDentalArchScene: React.FC<ThreeDentalArchSceneProps> = ({
 
     return () => {
       cancelAnimationFrame(animationId);
+      timer.dispose();
       resizeObserver.disconnect();
       dom.removeEventListener('pointerdown', onPointerDown);
       dom.removeEventListener('pointerup', onPointerUp);

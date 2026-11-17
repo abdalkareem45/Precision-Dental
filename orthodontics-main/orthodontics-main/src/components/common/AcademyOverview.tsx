@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { LectureTab } from '../../types/ortho';
+import { additionalLectures, tabHashes } from '../../navigation';
 import {
   BookOpen,
   Sparkles,
@@ -43,7 +44,7 @@ export const AcademyOverview: React.FC<AcademyOverviewProps> = ({ onSelectTab })
 
           <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
             A next-generation clinical education system engineered to master orthodontic examination in three dimensions,
-            diagnostic problem lists, gold-standard occlusion definitions, and Andrews' six keys through photorealistic 3D dental morphs and live 2D calipers.
+            diagnostic problem lists, occlusion concepts, TMDs, cephalometrics, panoramic imaging, and study-model analyses across seven lectures.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -121,6 +122,20 @@ export const AcademyOverview: React.FC<AcademyOverviewProps> = ({ onSelectTab })
             <ArrowRight className="w-4 h-4 text-[#C9A24B]" />
           </div>
         </div>
+
+        {additionalLectures.map(lecture => (
+          <a key={lecture.id} href={tabHashes[lecture.id]}
+            onClick={event => { event.preventDefault(); onSelectTab(lecture.id); }}
+            className="glass-panel glass-card-hover flex flex-col justify-between gap-4 rounded-2xl border border-[#C9A24B]/30 p-6 shadow-xl focus-visible:outline-2 focus-visible:outline-[#C9A24B]">
+            <div>
+              <BookOpen className="mb-4 h-6 w-6 text-[#DFC17B]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#DFC17B]">Lecture {lecture.number}</span>
+              <h2 className="mt-2 text-lg font-bold text-white">{lecture.title}</h2>
+              <p className="mt-3 text-sm text-slate-300">Explore a 3D sandbox, four 2D sandboxes, a knowledge check, and the source lecture notes.</p>
+            </div>
+            <span className="inline-flex items-center gap-2 text-xs font-bold text-[#DFC17B]">Open lecture <ArrowRight size={14} aria-hidden="true" /></span>
+          </a>
+        ))}
 
         {/* Module 3: 3D Simulation Lab */}
         <div

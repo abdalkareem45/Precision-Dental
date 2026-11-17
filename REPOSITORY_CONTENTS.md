@@ -6,7 +6,7 @@ This lists the current intended source files, not Git's tracked status. It exclu
 dependencies, generated builds, ZIP backups, duplicate extractions, local secrets,
 and npm-unused Bun lockfiles. No files are deleted by this command.
 
-339 files. Regenerate after adding lectures or other files.
+382 files. Regenerate after adding lectures or other files.
 
 ```text
 website/
@@ -179,6 +179,14 @@ website/
 |       \-- vite.config.ts
 +-- orthodontics-main/
 |   \-- orthodontics-main/
+|       +-- public/
+|       |   \-- assets/
+|       |       \-- orthodontics-04-07/
+|       |           +-- ElevenLabs_image_gpt-image-2-5-sunburst_A_brand_guideli_2026-10-13T17_08_46_a60636c3.png
+|       |           +-- Ortho.4._new_b8f99839.pdf
+|       |           +-- Ortho.5._neew_d0193574.pdf
+|       |           +-- Ortho.6._new_c554aea8.pdf
+|       |           \-- Ortho.7._new_c29a5c2c.pdf
 |       +-- src/
 |       |   +-- components/
 |       |   |   +-- clinical/
@@ -201,17 +209,65 @@ website/
 |       |   |       +-- BsiIncisorSimulator.tsx
 |       |   |       +-- CephalometricCaliper.tsx
 |       |   |       \-- SmileAestheticAnalyzer.tsx
+|       |   +-- lectures/
+|       |   |   \-- lectures-04-07/
+|       |   |       +-- components/
+|       |   |       |   +-- common/
+|       |   |       |   |   +-- BrandLogo.tsx
+|       |   |       |   |   +-- KnowledgeCheck.tsx
+|       |   |       |   |   +-- SandboxShell.tsx
+|       |   |       |   |   \-- ThreeViewport.tsx
+|       |   |       |   \-- lectures/
+|       |   |       |       +-- lecture4/
+|       |   |       |       |   +-- Lecture4View.tsx
+|       |   |       |       |   +-- Tmd2DEtiologySandbox.tsx
+|       |   |       |       |   +-- Tmd2DPalpationSandbox.tsx
+|       |   |       |       |   +-- Tmd2DProtocolSandbox.tsx
+|       |   |       |       |   +-- Tmd2DSoundsSandbox.tsx
+|       |   |       |       |   \-- Tmd3DSandbox.tsx
+|       |   |       |       +-- lecture5/
+|       |   |       |       |   +-- Ceph2DAnteroposteriorSandbox.tsx
+|       |   |       |       |   +-- Ceph2DLandmarksSandbox.tsx
+|       |   |       |       |   +-- Ceph2DSoftTissueSuperimpositionSandbox.tsx
+|       |   |       |       |   +-- Ceph2DVerticalIncisorSandbox.tsx
+|       |   |       |       |   +-- Ceph3DSandbox.tsx
+|       |   |       |       |   \-- Lecture5View.tsx
+|       |   |       |       +-- lecture6/
+|       |   |       |       |   +-- Lecture6View.tsx
+|       |   |       |       |   +-- Opg2DAnatomySandbox.tsx
+|       |   |       |       |   +-- Opg2DCasesModalitiesSandbox.tsx
+|       |   |       |       |   +-- Opg2DGhostArtifactSandbox.tsx
+|       |   |       |       |   +-- Opg2DStepsSandbox.tsx
+|       |   |       |       |   \-- Opg3DSandbox.tsx
+|       |   |       |       \-- lecture7/
+|       |   |       |           +-- Lecture7View.tsx
+|       |   |       |           +-- Models2DBoltonSandbox.tsx
+|       |   |       |           +-- Models2DCareyHoweSandbox.tsx
+|       |   |       |           +-- Models2DMixedDentitionSandbox.tsx
+|       |   |       |           +-- Models2DPontKorkhausSandbox.tsx
+|       |   |       |           \-- Models3DSandbox.tsx
+|       |   |       +-- data/
+|       |   |       |   +-- assets.ts
+|       |   |       |   \-- lecturesMeta.ts
+|       |   |       +-- types/
+|       |   |       |   \-- lecture.ts
+|       |   |       +-- App.tsx
+|       |   |       +-- content.css
+|       |   |       +-- content.test.mjs
+|       |   |       \-- README.md
 |       |   +-- types/
 |       |   |   \-- ortho.ts
 |       |   +-- App.tsx
 |       |   +-- index.css
-|       |   \-- main.tsx
+|       |   +-- main.tsx
+|       |   \-- navigation.ts
 |       +-- .env.example
 |       +-- .gitignore
 |       +-- index.html
 |       +-- metadata.json
 |       +-- package-lock.json
 |       +-- package.json
+|       +-- README.md
 |       +-- tsconfig.json
 |       \-- vite.config.ts
 +-- peidatiric-10-main/
@@ -415,6 +471,7 @@ website/
 |   +-- module-source.mjs
 |   +-- module-source.test.mjs
 |   +-- modules.json
+|   +-- orthodontics.browser.test.mjs
 |   +-- package-lock.json
 |   +-- package.json
 |   +-- pages.test.mjs

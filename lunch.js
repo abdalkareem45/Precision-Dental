@@ -26,8 +26,8 @@ const subjects = [
   },
   {
     name: "Orthodontics",
-    lectures: 3,
-    overview: "Craniofacial growth, cephalometric calipers, 3D dental arches, incisor vector simulators, and case diagnostics.",
+    lectures: 7,
+    overview: "Clinical examination, occlusion, TMDs, cephalometrics, panoramic imaging, study-model analyses, interactive sandboxes, and knowledge checks.",
     launchCode: "8666a648e8a3f5a983a00b19e5cc39db2ef0d29c"
   },
   {
