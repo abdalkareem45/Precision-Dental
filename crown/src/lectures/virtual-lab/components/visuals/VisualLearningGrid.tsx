@@ -304,7 +304,7 @@ const ChecklistBody: React.FC<{ item: VisualCardItem }> = ({ item }) => {
       {items.map((it, idx) => (
         <li
           key={idx}
-          className="flex items-start justify-between gap-3 rounded-xl border border-marble bg-ivory/60 p-3 text-xs"
+          className="flex flex-col sm:flex-row items-start justify-between gap-3 rounded-xl border border-marble bg-ivory/60 p-3 text-xs"
         >
           <div className="flex items-start gap-2">
             <CheckCircle2
@@ -322,7 +322,7 @@ const ChecklistBody: React.FC<{ item: VisualCardItem }> = ({ item }) => {
               {it.note && <div className="text-navy/75 mt-0.5">{it.note}</div>}
             </div>
           </div>
-          <span className="font-mono font-semibold text-royal shrink-0 text-right">
+          <span className="max-w-full break-words font-mono font-semibold text-royal shrink-0 sm:text-right">
             {it.value}
           </span>
         </li>

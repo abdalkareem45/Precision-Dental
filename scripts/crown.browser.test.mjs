@@ -29,6 +29,24 @@ async function metadata() {
   return result;
 }
 
+test('Crown: long Lecture 7A checklist labels fit narrow screens', { timeout: 30_000 }, async t => {
+  const server = await startPreviewServer();
+  t.after(server.close);
+  const browser = await chromium.launch(browserOptions);
+  t.after(() => browser.close());
+  const page = await browser.newPage({ viewport: { width: 360, height: 844 } });
+  await page.goto(`${server.origin}${previewPrefix}${subjectDirectory}/#lecture-7a`);
+  const panel = await tab(page, 'visuals');
+  const card = panel.getByRole('article').filter({
+    has: page.getByRole('heading', { name: '4 Objectives of Gingival Retraction', exact: true }),
+  });
+  await card.scrollIntoViewIfNeeded();
+  await card.getByText('Dry Field for Hydrophobic Elastomers', { exact: true }).waitFor();
+  const fits = await card.evaluate(element => element.scrollWidth <= element.clientWidth + 2);
+  assert.ok(fits, 'Long checklist labels wrap within the card instead of overflowing');
+  await noOverflow(page, 'Lecture 7A narrow-screen checklist');
+});
+
 async function noOverflow(page, label) {
   const overflow = await page.locator('html, body, main, .crown-virtual-lab, [role="tabpanel"], main section, main article').evaluateAll(elements => elements
     .filter(element => element.clientWidth && element.scrollWidth > element.clientWidth + 2)
