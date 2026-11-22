@@ -2,8 +2,8 @@
 const subjects = [
   {
     name: "Crown & Bridge Fundamentals",
-    lectures: 3,
-    overview: "Abutment evaluations, Jespen root surface area metrics, crown-to-root ratios, and Ante's Law mechanical calculations.",
+    lectures: 12,
+    overview: "Twelve learning modules covering foundations, abutments, biomechanics, retainers, pontics, tissue management, impressions, provisionals, bite registration, shade selection, and cementation.",
     launchCode: "f367df11cf62a3147e0a171e3f35c4a0333a68f9"
   },
   {

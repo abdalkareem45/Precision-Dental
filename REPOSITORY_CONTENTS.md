@@ -6,7 +6,7 @@ This lists the current intended source files, not Git's tracked status. It exclu
 dependencies, generated builds, ZIP backups, duplicate extractions, local secrets,
 and npm-unused Bun lockfiles. No files are deleted by this command.
 
-382 files. Regenerate after adding lectures or other files.
+423 files. Regenerate after adding lectures or other files.
 
 ```text
 website/
@@ -16,10 +16,64 @@ website/
 +-- .zed/
 |   \-- settings.json
 +-- crown/
+|   +-- public/
+|   |   \-- assets/
+|   |       \-- crown-virtual-lab/
+|   |           +-- Bite_Registration_a32164be.pdf
+|   |           +-- ElevenLabs_image_gpt-image-2-5-sunburst_A_brand_guideli_2026-10-13T17_08_46_a60636c3.png
+|   |           +-- Lect_4_12e19f3e.pdf
+|   |           +-- Lect_5_4a645c29.pdf
+|   |           +-- Lect_6_pontic_7e6e6710.pdf
+|   |           +-- Lecture_7__Impression_2024__7eee9057.pdf
+|   |           +-- Lecture_7__Tissue_Management__-_manhal.abdulrahman_a3308e24.pdf
+|   |           +-- Provisional__temporary__Restorations_46a0b2eb.pdf
+|   |           +-- Shade_Selection_f0f9cf15.pdf
+|   |           \-- Try-in___Cementation__09efe577.pdf
 |   +-- src/
+|   |   +-- lectures/
+|   |   |   \-- virtual-lab/
+|   |   |       +-- components/
+|   |   |       |   +-- quiz/
+|   |   |       |   |   +-- LectureQuizModule.tsx
+|   |   |       |   |   \-- LectureQuizSkeleton.tsx
+|   |   |       |   +-- sandboxes/
+|   |   |       |   |   +-- ClinicalCaseSandbox.tsx
+|   |   |       |   |   +-- DiagnosticPlannerSandbox.tsx
+|   |   |       |   |   +-- MaterialComparisonSandbox.tsx
+|   |   |       |   |   \-- ProcedureFlowSandbox.tsx
+|   |   |       |   +-- three/
+|   |   |       |   |   +-- buildLectureScene.ts
+|   |   |       |   |   +-- Dental3DSandbox.tsx
+|   |   |       |   |   \-- dentalGeometry.ts
+|   |   |       |   +-- visuals/
+|   |   |       |   |   +-- VisualLearningGrid.tsx
+|   |   |       |   |   \-- VisualLearningGridSkeleton.tsx
+|   |   |       |   +-- BrandMark.tsx
+|   |   |       |   \-- ProgressDashboard.tsx
+|   |   |       +-- data/
+|   |   |       |   +-- lectures.ts
+|   |   |       |   +-- lecturesPart1.ts
+|   |   |       |   \-- lecturesPart2.ts
+|   |   |       +-- store/
+|   |   |       |   +-- progress.ts
+|   |   |       |   \-- useLabStore.ts
+|   |   |       +-- tests/
+|   |   |       |   +-- content.test.ts
+|   |   |       |   +-- run.mjs
+|   |   |       |   +-- store.test.ts
+|   |   |       |   \-- three.test.ts
+|   |   |       +-- types/
+|   |   |       |   \-- lecture.ts
+|   |   |       +-- App.tsx
+|   |   |       +-- index.css
+|   |   |       +-- README.md
+|   |   |       +-- registry.ts
+|   |   |       \-- sourcePdfs.ts
 |   |   +-- App.tsx
+|   |   +-- Foundations.tsx
 |   |   +-- index.css
-|   |   \-- main.tsx
+|   |   +-- main.tsx
+|   |   \-- navigation.ts
 |   +-- .env.example
 |   +-- .gitignore
 |   +-- index.html
@@ -463,6 +517,7 @@ website/
 |   \-- vite.config.ts
 +-- scripts/
 |   +-- build-pages.mjs
+|   +-- crown.browser.test.mjs
 |   +-- dependency-fixes.mjs
 |   +-- dependency-fixes.test.mjs
 |   +-- endodontics.browser.test.mjs

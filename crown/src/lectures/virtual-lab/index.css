@@ -1,0 +1,45 @@
+.crown-virtual-lab {
+  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.crown-virtual-lab .tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.crown-virtual-lab .cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
+}
+
+@keyframes crown-virtual-lab-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.crown-virtual-lab .skeleton-shimmer {
+  background-color: #e6e8ec;
+  background-image: linear-gradient(90deg, #e6e8ec 0%, #f3f4f7 42%, #faf8f3 50%, #f3f4f7 58%, #e6e8ec 100%);
+  background-size: 200% 100%;
+  animation: crown-virtual-lab-shimmer 1.5s ease-in-out infinite;
+}
+
+.crown-virtual-lab :focus-visible {
+  outline: 2px solid #1b3a8c;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crown-virtual-lab *,
+  .crown-virtual-lab *::before,
+  .crown-virtual-lab *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .crown-virtual-lab .skeleton-shimmer {
+    animation: none !important;
+    background-image: none;
+  }
+}

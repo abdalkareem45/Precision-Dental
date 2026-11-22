@@ -78,6 +78,16 @@ test('Orthodontics advertises all seven integrated lectures', () => {
   assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === '8666a648e8a3f5a983a00b19e5cc39db2ef0d29c').lectures", context), 7);
 });
 
+test('Crown advertises the original three lectures and nine new modules', () => {
+  const context = {
+    document: { getElementById: () => ({ innerHTML: '' }) },
+    window: { location: { href: '' } }
+  };
+  vm.createContext(context);
+  vm.runInContext(launcher, context);
+  assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'f367df11cf62a3147e0a171e3f35c4a0333a68f9').lectures", context), 12);
+});
+
 test('redirects retain the GitHub Pages repository prefix', () => {
   for (const module of modules) {
     assert.equal(redirect(module.directory).destination,
