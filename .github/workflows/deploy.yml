@@ -50,6 +50,8 @@ jobs:
           npm audit --prefix crown --audit-level=high
       - name: Verify imported Orthodontics content
         run: node --test orthodontics-main/orthodontics-main/src/lectures/lectures-04-07/content.test.mjs
+      - name: Verify Endodontics curriculum content, progress, and scene resources
+        run: node endo-1-main/src/lectures/curriculum/tests/run.mjs
       - name: Verify Crown content, progress, and scene resources
         run: node crown/src/lectures/virtual-lab/tests/run.mjs
       - name: Verify production output and navigation
@@ -59,7 +61,7 @@ jobs:
         run: node scripts/node_modules/playwright/cli.js install --with-deps chromium
       # Software-rendered WebGL suites share the runner CPU; avoid competing browsers.
       - name: Test subject entries and lecture interactions
-        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs
+        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs
       - name: Upload static production site only
         uses: actions/upload-pages-artifact@v3
         with:

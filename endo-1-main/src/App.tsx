@@ -1,8 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, Stethoscope, Syringe } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, Box, Stethoscope, Syringe } from 'lucide-react';
+import { LECTURES as CURRICULUM_LECTURES } from './lectures/curriculum/data/lectures';
 
 const Lecture01 = lazy(() => import('./Lecture01'));
 const Lecture02 = lazy(() => import('./lectures/lecture-02/App'));
+const Curriculum = lazy(() => import('./lectures/curriculum/App'));
 
 const lectures = [
   {
@@ -21,6 +23,23 @@ const lectures = [
     icon: Syringe,
     component: Lecture02,
   },
+  ...CURRICULUM_LECTURES.map(lecture => ({
+    id: lecture.id,
+    number: lecture.lectureNumberLabel.replace('Lecture ', ''),
+    title: lecture.title,
+    description: lecture.subtitle,
+    icon: Box,
+    component: () => (
+      <main>
+        <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6">
+          <p className="text-sm font-bold text-precision-gold">{lecture.lectureNumberLabel}</p>
+          <h1 className="mt-2 text-2xl font-bold sm:text-3xl">{lecture.title}</h1>
+          <p className="mt-2 text-sm text-marble-grey">{lecture.subtitle}</p>
+        </div>
+        <Curriculum lectureId={lecture.id} />
+      </main>
+    ),
+  })),
 ];
 
 function selectedLecture() {
@@ -71,7 +90,7 @@ export default function App() {
         ) : (
           <main className="mx-auto max-w-5xl px-5 py-12 sm:py-20">
             <div className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-precision-gold">
-              <BookOpen size={18} aria-hidden="true" /> Precision Dental · 2 Lectures
+              <BookOpen size={18} aria-hidden="true" /> Precision Dental · {lectures.length} Lectures
             </div>
             <h1 className="text-3xl font-extrabold sm:text-5xl">Endodontics</h1>
             <p className="mt-4 max-w-2xl leading-relaxed text-marble-grey">Choose a lecture to open its interactive study tools, clinical cases, and learning materials.</p>

@@ -30,7 +30,7 @@ those wrappers unless deliberately updating the source mapping. The build
 requires each explicit source and must fail if it is missing or invalid. It must
 never fall back to old `.build-sources/` contents or local ZIPs.
 
-Endodontics contains both integrated lectures in `endo-1-main/`. Preserve that
+Endodontics contains nine integrated modules in `endo-1-main/`. Preserve that
 app rather than replacing it with the old nested copy or raw Lecture 2 export.
 Preserve the fixed Vite app in `pros-main/`, not the raw `pros/` export.
 
@@ -149,9 +149,11 @@ Open `http://localhost:8080/` and test all nine cards. Also test the actual
 repository-prefixed deployed URL; a domain-root preview alone cannot prove that
 runtime paths work under a Pages project prefix.
 
-Endodontics opens a two-lecture selector at `endo-1-main/index.html`. Direct
-links use `#lecture-1` and `#lecture-2`, surviving refresh without server routing.
-Both lectures are lazy-loaded. See `endo-1-main/README.md` for source locations
+Endodontics opens a nine-module selector at `endo-1-main/index.html`. Direct
+links use `#lecture-1`, `#lecture-2`, `#lecture-3`, `#lecture-4`, `#lecture-4b`,
+`#lecture-5`, `#lecture-7`, `#lecture-8`, and `#lecture-9`, surviving refresh
+without server routing. Original numbering is retained; no Lecture 6 was supplied.
+Lecture tools are lazy-loaded. See `endo-1-main/README.md` for source locations
 and development commands.
 
 For automated desktop/mobile browser checks after a complete build:
@@ -159,7 +161,8 @@ For automated desktop/mobile browser checks after a complete build:
 ```sh
 npm ci --prefix scripts --no-audit --no-fund
 node scripts/node_modules/playwright/cli.js install chromium
-node --test scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs
+node endo-1-main/src/lectures/curriculum/tests/run.mjs
+node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs
 npm --prefix endo-1-main run lint
 npm --prefix pros-main run lint
 ```

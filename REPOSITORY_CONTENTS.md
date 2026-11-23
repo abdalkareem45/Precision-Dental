@@ -6,7 +6,7 @@ This lists the current intended source files, not Git's tracked status. It exclu
 dependencies, generated builds, ZIP backups, duplicate extractions, local secrets,
 and npm-unused Bun lockfiles. No files are deleted by this command.
 
-423 files. Regenerate after adding lectures or other files.
+457 files. Regenerate after adding lectures or other files.
 
 ```text
 website/
@@ -84,6 +84,18 @@ website/
 |   +-- tsconfig.json
 |   \-- vite.config.ts
 +-- endo-1-main/
+|   +-- public/
+|   |   \-- assets/
+|   |       \-- endo-curriculum/
+|   |           \-- aistudio/
+|   |               +-- ElevenLabs_image_gpt-image-2-5-sunburst_A_brand_guideli_2026-10-13T17_08_46_a60636c3.png
+|   |               +-- Endodontic_Radiography_lec_4_3d110457.pdf
+|   |               +-- Lecture_4.pdf_intra_canal_bd9ce3c6.pdf
+|   |               +-- Lecture_5__2__d85cde41.pdf
+|   |               +-- Lecture_7_0b8100ae.pdf
+|   |               +-- Lecture_8_4641b218.pdf
+|   |               +-- Lecture_9_74931c72.pdf
+|   |               \-- workinglength.pdf_lec_3_3b4f5f88.pdf
 |   +-- src/
 |   |   +-- components/
 |   |   |   +-- CaseSimulator.tsx
@@ -103,6 +115,39 @@ website/
 |   |   |   +-- lectureData.ts
 |   |   |   \-- painMnemonics.ts
 |   |   +-- lectures/
+|   |   |   +-- curriculum/
+|   |   |   |   +-- components/
+|   |   |   |   |   +-- sandboxes2d/
+|   |   |   |   |   |   +-- Lecture2DSandboxes.tsx
+|   |   |   |   |   |   \-- QuizAndCaseModule.tsx
+|   |   |   |   |   +-- sandboxes3d/
+|   |   |   |   |   |   +-- Emergencies3DSandboxes.tsx
+|   |   |   |   |   |   +-- FillingMaterials3DSandboxes.tsx
+|   |   |   |   |   |   +-- InstrumentsI3DSandboxes.tsx
+|   |   |   |   |   |   +-- InstrumentsII3DSandboxes.tsx
+|   |   |   |   |   |   +-- Obturation3DSandboxes.tsx
+|   |   |   |   |   |   +-- Radiography3DSandboxes.tsx
+|   |   |   |   |   |   \-- WorkingLength3DSandboxes.tsx
+|   |   |   |   |   +-- BrandLogo.tsx
+|   |   |   |   |   +-- LectureWorkspace.tsx
+|   |   |   |   |   +-- ProgressOverviewModal.tsx
+|   |   |   |   |   \-- ThreeSandboxShell.tsx
+|   |   |   |   +-- data/
+|   |   |   |   |   +-- lectures.ts
+|   |   |   |   |   \-- quizzesAndCases.ts
+|   |   |   |   +-- tests/
+|   |   |   |   |   +-- curriculum.test.tsx
+|   |   |   |   |   +-- run.mjs
+|   |   |   |   |   \-- three-mock.ts
+|   |   |   |   +-- three/
+|   |   |   |   |   +-- dentalGeometry.ts
+|   |   |   |   |   \-- studioEngine.ts
+|   |   |   |   +-- types/
+|   |   |   |   |   \-- lecture.ts
+|   |   |   |   +-- App.tsx
+|   |   |   |   +-- curriculum.css
+|   |   |   |   +-- progress.ts
+|   |   |   |   \-- README.md
 |   |   |   \-- lecture-02/
 |   |   |       +-- components/
 |   |   |       |   +-- GrandVisualizerSandbox.tsx
@@ -520,6 +565,7 @@ website/
 |   +-- crown.browser.test.mjs
 |   +-- dependency-fixes.mjs
 |   +-- dependency-fixes.test.mjs
+|   +-- endodontics-curriculum.browser.test.mjs
 |   +-- endodontics.browser.test.mjs
 |   +-- landing.css
 |   +-- list-repository.mjs

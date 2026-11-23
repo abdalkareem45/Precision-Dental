@@ -1,18 +1,25 @@
 # Precision Dental — Endodontics
 
 This is the maintained React/TypeScript source for the Endodontics subject.
-It contains **two lectures**, not two separate subjects:
+It contains **nine lecture modules** within one subject:
 
 - Lecture 1 — Endodontic Diagnosis: `src/Lecture01.tsx`, `src/components/`,
   `src/data/`, and `src/types/` (preserved from `endo-1-main.zip`).
 - Lecture 2 — Pain Control in Endodontics: `src/lectures/lecture-02/App.tsx`
   and its `components/` (imported from `endo-2-.zip`).
+- Seven additional modules in `src/lectures/curriculum/`: working length (3),
+  radiography (4), manual instruments (4B), rotary instruments (5), filling
+  materials (7), obturation (8), and emergencies (9). Each includes three 3D
+  labs, two 2D studios, a quiz, a clinical case, and its source PDF. See the
+  [curriculum integration notes](src/lectures/curriculum/README.md).
+  Source numbering is retained; the archive does not contain Lecture 6.
 
 `src/App.tsx` provides the lecture selector and persistent subject navigation.
 Lecture components are lazy-loaded. Refresh-safe links use `#lecture-1` and
-`#lecture-2`; unknown or empty hashes show the lecture selector.
-The root landing page's Endodontics card still links to this subject and shows
-2 lectures.
+`#lecture-2`, plus `#lecture-3`, `#lecture-4`, `#lecture-4b`, `#lecture-5`,
+`#lecture-7`, `#lecture-8`, and `#lecture-9`; unknown or empty hashes show the
+lecture selector. The root landing page's Endodontics card links to this subject
+and shows 9 modules. Original lecture routes and tools are preserved.
 
 ## Edit and preview
 
@@ -37,7 +44,8 @@ node scripts/build-pages.mjs
 node --test scripts/dependency-fixes.test.mjs scripts/vite-pages-options.test.mjs scripts/pages.test.mjs
 npm ci --prefix scripts --no-audit --no-fund
 node scripts/node_modules/playwright/cli.js install chromium
-node --test scripts/endodontics.browser.test.mjs scripts/subjects.browser.test.mjs
+node endo-1-main/src/lectures/curriculum/tests/run.mjs
+node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs
 ```
 
 Browser checks cover lecture selection, Lecture 1 notes, all Lecture 2 topics,

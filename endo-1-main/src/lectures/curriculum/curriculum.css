@@ -1,0 +1,72 @@
+.endo-curriculum {
+  --pd-royal: #1b3a8c;
+  --pd-navy: #0b1f4d;
+  --pd-gold: #c9a24b;
+  --pd-ivory: #faf8f3;
+  --pd-marble: #e6e8ec;
+  --pd-bg: var(--pd-ivory);
+  --pd-surface: #fff;
+  --pd-surface-inset: var(--pd-ivory);
+  --pd-text: var(--pd-navy);
+  --pd-text-muted: rgb(11 31 77 / 72%);
+  --pd-accent: var(--pd-royal);
+  --pd-border: var(--pd-marble);
+  color-scheme: light;
+  background: var(--pd-bg);
+  color: var(--pd-text);
+  font-family: 'Montserrat', system-ui, sans-serif;
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.endo-curriculum[data-endo-theme='dark'] {
+  --pd-bg: #071536;
+  --pd-surface: var(--pd-navy);
+  --pd-surface-inset: #08183d;
+  --pd-text: var(--pd-ivory);
+  --pd-text-muted: rgb(230 232 236 / 80%);
+  --pd-accent: var(--pd-gold);
+  --pd-border: rgb(201 162 75 / 28%);
+  color-scheme: dark;
+}
+
+.endo-curriculum .font-mono-tabular {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.endo-curriculum .font-arabic { font-family: 'Tajawal', sans-serif; }
+.endo-curriculum :is(h2, h3, h4) { text-wrap: balance; }
+.endo-curriculum :is(button, a, input):focus-visible { outline: 2px solid var(--pd-gold); outline-offset: 3px; }
+.endo-curriculum button:not(:disabled) { cursor: pointer; }
+.endo-curriculum [data-curriculum-section] { scroll-margin-top: 1rem; }
+.endo-curriculum .endo-curriculum-workspace { max-width: 1440px; margin-inline: auto; padding: 1rem; }
+.endo-curriculum .endo-curriculum-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: .75rem 1rem; border-bottom: 1px solid var(--pd-border); background: var(--pd-surface); }
+.endo-curriculum .endo-curriculum-toolbar :is(nav, div) { display: flex; flex-wrap: wrap; gap: .5rem; }
+.endo-curriculum .endo-curriculum-toolbar button { display: inline-flex; align-items: center; gap: .4rem; border: 1px solid var(--pd-border); border-radius: .5rem; padding: .5rem .75rem; font-size: .75rem; font-weight: 600; background: var(--pd-surface-inset); color: var(--pd-text); }
+.endo-curriculum .endo-curriculum-toolbar button:hover { border-color: var(--pd-gold); }
+.endo-curriculum .endo-curriculum-lab-overlay { position: absolute; inset: .75rem .75rem auto; display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: .5rem; pointer-events: none; }
+.endo-curriculum .endo-curriculum-lab-overlay > div { min-width: 0; max-width: 100%; }
+.endo-curriculum .endo-curriculum-dock { max-height: 56%; }
+.endo-curriculum .endo-curriculum-dock-content { min-height: 0; overflow-y: auto; }
+.endo-curriculum .endo-curriculum-dialog { width: calc(100% - 2rem); max-height: calc(100dvh - 2rem); }
+.endo-curriculum .endo-curriculum-dialog::backdrop { background: rgb(4 11 30 / 75%); }
+
+.endo-curriculum input[type='range'].pd-slider { appearance: none; height: 6px; border-radius: 999px; background: rgb(230 232 236 / 35%); }
+.endo-curriculum input[type='range'].pd-slider::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #c9a24b; border: 2px solid #faf8f3; cursor: pointer; box-shadow: 0 1px 4px rgb(11 31 77 / 45%); }
+.endo-curriculum input[type='range'].pd-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #c9a24b; border: 2px solid #faf8f3; cursor: pointer; box-shadow: 0 1px 4px rgb(11 31 77 / 45%); }
+
+@media (max-width: 639px) {
+  .endo-curriculum .endo-curriculum-workspace { padding: .75rem; }
+  .endo-curriculum .endo-curriculum-workspace :is(.grid, .flex) > * { min-width: 0; }
+  .endo-curriculum .endo-curriculum-workspace button { max-width: 100%; white-space: normal; }
+  .endo-curriculum .endo-curriculum-workspace .flex:not(.flex-col) { flex-wrap: wrap; }
+  .endo-curriculum .endo-curriculum-lab-overlay { position: static; padding: .75rem; }
+  .endo-curriculum .endo-curriculum-lab-stage { height: auto; display: flex; flex-direction: column; }
+  .endo-curriculum .endo-curriculum-viewport { height: 340px; order: 1; flex: none; }
+  .endo-curriculum .endo-curriculum-dock { position: static; order: 2; max-height: 260px; margin-bottom: .75rem; }
+  .endo-curriculum .endo-curriculum-lab-overlay > div { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .endo-curriculum *, .endo-curriculum *::before, .endo-curriculum *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

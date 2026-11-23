@@ -39,7 +39,8 @@ Also commit:
   inventory generator, styles, preview/test helpers, tests, and npm manifest/lock.
 - `.github/` workflows, `.zed/` editor settings, and `.gitignore`.
 
-Preserve Endodontics' integrated Lecture 1/Lecture 2 app in `endo-1-main/` and the
+Preserve Endodontics' nine-module app (original Lectures 1–2 plus seven curriculum
+modules) in `endo-1-main/` and the
 fixed Prosthodontics Vite app in `pros-main/`. Do not replace either with a raw
 export. Keep npm `package-lock.json` files for **all nine apps**, not just these
 two, and for the build/test tools in `scripts/`.

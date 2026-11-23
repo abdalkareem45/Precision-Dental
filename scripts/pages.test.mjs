@@ -58,14 +58,14 @@ test('all nine cards navigate through subject.html', () => {
   }
 });
 
-test('Endodontics advertises both integrated lectures', () => {
+test('Endodontics advertises the original two lectures and seven curriculum modules', () => {
   const context = {
     document: { getElementById: () => ({ innerHTML: '' }) },
     window: { location: { href: '' } }
   };
   vm.createContext(context);
   vm.runInContext(launcher, context);
-  assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'endo-1-main').lectures", context), 2);
+  assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'endo-1-main').lectures", context), 9);
 });
 
 test('Orthodontics advertises all seven integrated lectures', () => {

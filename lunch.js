@@ -8,8 +8,8 @@ const subjects = [
   },
   {
     name: "Endodontics",
-    lectures: 2,
-    overview: "Pulp diagnosis, cracked tooth investigation, pain control, local anesthesia techniques, clinical simulators, and knowledge checks.",
+    lectures: 9,
+    overview: "Nine modules covering diagnosis, pain control, working length, radiography, manual and rotary instruments, filling materials, obturation, and emergencies with 3D labs, clinical cases, quizzes, and source PDFs.",
     launchCode: "endo-1-main"
   },
   {

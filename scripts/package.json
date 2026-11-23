@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test:browser": "node --test --test-concurrency=1 endodontics.browser.test.mjs subjects.browser.test.mjs orthodontics.browser.test.mjs crown.browser.test.mjs"
+    "test:browser": "node --test --test-concurrency=1 endodontics.browser.test.mjs endodontics-curriculum.browser.test.mjs subjects.browser.test.mjs orthodontics.browser.test.mjs crown.browser.test.mjs"
   },
   "allowScripts": {
     "@parcel/watcher": false
