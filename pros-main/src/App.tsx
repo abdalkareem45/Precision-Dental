@@ -1,4 +1,4 @@
-import { useState, useCallback, type ReactNode } from 'react';
+import { useState, useCallback, useEffect, type ReactNode } from 'react';
 
 /* ══════════════════════════════════════════════════════════════════════════
    ░░  ICONS (SVG Icon Library)
@@ -1220,10 +1220,22 @@ function Lec3Quiz() {
 /* ══════════════════════════════════════════════════════════════════════════
    ░░  APP SHELL
    ══════════════════════════════════════════════════════════════════════════ */
-export default function App() {
-  const [activeLecId, setActiveLecId] = useState('lec1');
-  const [activeNavId, setActiveNavId] = useState('l1-overview');
-  const [visited, setVisited] = useState(() => new Set(['l1-overview']));
+export default function App({ lectureId = 'lec1', onLectureChange }: {
+  lectureId?: string;
+  onLectureChange?: (id: string) => void;
+}) {
+  const initialNav = LECTURES.find(lecture => lecture.id === lectureId)?.nav[0].id ?? 'l1-overview';
+  const [activeLecId, setActiveLecId] = useState(lectureId);
+  const [activeNavId, setActiveNavId] = useState(initialNav);
+  const [visited, setVisited] = useState(() => new Set([initialNav]));
+
+  useEffect(() => {
+    const lecture = LECTURES.find(item => item.id === lectureId);
+    if (!lecture) return;
+    setActiveLecId(lecture.id);
+    setActiveNavId(lecture.nav[0].id);
+    setVisited(previous => new Set(previous).add(lecture.nav[0].id));
+  }, [lectureId]);
   const [drawer, setDrawer] = useState(false);
   const [sheet, setSheet] = useState(false);
 
@@ -1234,6 +1246,7 @@ export default function App() {
     if (lec) {
       if (lec.id !== activeLecId) {
         setActiveLecId(lec.id);
+        onLectureChange?.(lec.id);
       }
       setActiveNavId(id);
       setVisited(prev => new Set(prev).add(id));
@@ -1241,7 +1254,7 @@ export default function App() {
       setSheet(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [activeLecId]);
+  }, [activeLecId, onLectureChange]);
 
   const switchLecture = (lecId: string) => {
     const lecture = LECTURES.find(l => l.id === lecId);

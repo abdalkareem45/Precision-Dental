@@ -88,6 +88,16 @@ test('Crown advertises the original three lectures and nine new modules', () => 
   assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'f367df11cf62a3147e0a171e3f35c4a0333a68f9').lectures", context), 12);
 });
 
+test('Prosthodontics advertises the original three lectures and seven studio modules', () => {
+  const context = {
+    document: { getElementById: () => ({ innerHTML: '' }) },
+    window: { location: { href: '' } }
+  };
+  vm.createContext(context);
+  vm.runInContext(launcher, context);
+  assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'pros-main').lectures", context), 10);
+});
+
 test('redirects retain the GitHub Pages repository prefix', () => {
   for (const module of modules) {
     assert.equal(redirect(module.directory).destination,

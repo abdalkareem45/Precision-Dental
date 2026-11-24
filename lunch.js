@@ -50,8 +50,8 @@ const subjects = [
   },
   {
     name: "Prosthodontics",
-    lectures: 3,
-    overview: "Complete and partial denture biomechanics, border molding techniques, occlusal vertical dimension, and impression procedures.",
+    lectures: 10,
+    overview: "Ten lectures covering edentulous classification, single dentures, jaw relations, posterior palatal seal, denture complications, immediate dentures, and maxillofacial prostheses with simulations, cases, quizzes, and source PDFs.",
     launchCode: "pros-main"
   }
 ];

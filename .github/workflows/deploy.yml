@@ -54,6 +54,8 @@ jobs:
         run: node endo-1-main/src/lectures/curriculum/tests/run.mjs
       - name: Verify Crown content, progress, and scene resources
         run: node crown/src/lectures/virtual-lab/tests/run.mjs
+      - name: Verify Prosthodontics studio content, progress, and resources
+        run: node pros-main/src/lectures/simulation-studio/tests/run.mjs
       - name: Verify production output and navigation
         run: node --test scripts/module-source.test.mjs scripts/dependency-fixes.test.mjs scripts/vite-pages-options.test.mjs scripts/pages.test.mjs
 
@@ -61,7 +63,7 @@ jobs:
         run: node scripts/node_modules/playwright/cli.js install --with-deps chromium
       # Software-rendered WebGL suites share the runner CPU; avoid competing browsers.
       - name: Test subject entries and lecture interactions
-        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs
+        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs scripts/prosthodontics.browser.test.mjs
       - name: Upload static production site only
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,22 @@
+/* The host supplies Tailwind. Dark utilities use its built-in in-[...] variant,
+   constrained to this wrapper, without registering or overriding any variant. */
+
+.prostho-studio {
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+}
+.prostho-studio[data-theme="dark"] { color-scheme: dark; }
+.prostho-studio :is(h2, h3, h4) { text-wrap: balance; }
+.prostho-studio .tabular-nums { font-variant-numeric: tabular-nums; }
+.prostho-studio .font-arabic { font-family: "Tajawal", sans-serif; }
+.prostho-studio .no-scrollbar::-webkit-scrollbar { display: none; }
+.prostho-studio .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.prostho-studio [id^="prostho-studio-scene-"] { scroll-margin-top: 9rem; }
+@media (prefers-reduced-motion: reduce) {
+  .prostho-studio *, .prostho-studio *::before, .prostho-studio *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
