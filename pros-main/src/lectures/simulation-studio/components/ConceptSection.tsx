@@ -33,7 +33,7 @@ export function ConceptSection({ lecture, onSelectScene }: ConceptSectionProps) 
         {lecture.concepts.map((concept, idx) => (
           <article
             key={concept.id}
-            className="bg-white in-[.prostho-studio[data-theme=dark]]:bg-[#0B1F4D] border border-[#E6E8EC] in-[.prostho-studio[data-theme=dark]]:border-[#1B3A8C]/50 rounded-xl p-6 flex flex-col justify-between space-y-5 transition-colors"
+            className="min-w-0 bg-white in-[.prostho-studio[data-theme=dark]]:bg-[#0B1F4D] border border-[#E6E8EC] in-[.prostho-studio[data-theme=dark]]:border-[#1B3A8C]/50 rounded-xl p-6 flex flex-col justify-between space-y-5 transition-colors"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs text-[#0B1F4D]/65 in-[.prostho-studio[data-theme=dark]]:text-[#E6E8EC]/70">
@@ -55,12 +55,12 @@ export function ConceptSection({ lecture, onSelectScene }: ConceptSectionProps) 
                 {concept.parameters.map((param) => (
                   <div
                     key={param.label}
-                    className="bg-[#FAF8F3] in-[.prostho-studio[data-theme=dark]]:bg-[#06112B] rounded-lg p-2.5 border border-[#E6E8EC] in-[.prostho-studio[data-theme=dark]]:border-[#1B3A8C]/40"
+                    className="min-w-0 bg-[#FAF8F3] in-[.prostho-studio[data-theme=dark]]:bg-[#06112B] rounded-lg p-2.5 border border-[#E6E8EC] in-[.prostho-studio[data-theme=dark]]:border-[#1B3A8C]/40"
                   >
                     <div className="text-[11px] text-[#0B1F4D]/65 in-[.prostho-studio[data-theme=dark]]:text-[#E6E8EC]/70">
                       {param.label}
                     </div>
-                    <div className="text-xs font-bold text-[#0B1F4D] in-[.prostho-studio[data-theme=dark]]:text-[#FAF8F3] font-mono tabular-nums mt-0.5">
+                    <div className="break-words text-xs font-bold text-[#0B1F4D] in-[.prostho-studio[data-theme=dark]]:text-[#FAF8F3] font-mono tabular-nums mt-0.5">
                       {param.value}
                     </div>
                   </div>

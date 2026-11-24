@@ -1452,24 +1452,24 @@ export default function App({ lectureId = 'lec1', onLectureChange }: {
             </div>
 
             {/* Previous / Next Navigation Buttons */}
-            <div className="mt-10 flex items-center justify-between border-t border-slate-200 pt-6">
+            <div className="mt-10 grid grid-cols-2 gap-3 border-t border-slate-200 pt-6">
               {prevNav ? (
                 <button onClick={() => go(prevNav.id)}
-                  className="group flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-4 py-3 text-[13px] font-bold text-slate-700 shadow-sm transition hover:border-maxblue hover:text-maxblue active:scale-[.98]">
+                  className="group flex min-w-0 w-full items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 sm:px-4 py-3 text-[13px] font-bold text-slate-700 shadow-sm transition hover:border-maxblue hover:text-maxblue active:scale-[.98]">
                   <Icon name="arrowL" className="h-4 w-4 transition group-hover:-translate-x-0.5" />
-                  <div className="text-left">
+                  <div className="min-w-0 text-left">
                     <span className="block text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Previous</span>
-                    <span className="block truncate max-w-35 sm:max-w-xs">{prevNav.label}</span>
+                    <span className="block max-w-full truncate">{prevNav.label}</span>
                   </div>
                 </button>
               ) : <div />}
 
               {nextNav ? (
                 <button onClick={() => go(nextNav.id)}
-                  className="group flex items-center gap-2.5 rounded-xl bg-maxblue px-4 sm:px-6 py-3 text-[13px] font-extrabold text-white shadow-md shadow-maxblue/25 transition hover:brightness-110 active:scale-[.98]">
-                  <div className="text-right">
+                  className="group flex min-w-0 w-full items-center justify-end gap-2.5 rounded-xl bg-maxblue px-3 sm:px-6 py-3 text-[13px] font-extrabold text-white shadow-md shadow-maxblue/25 transition hover:brightness-110 active:scale-[.98]">
+                  <div className="min-w-0 text-right">
                     <span className="block text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-blue-200">Next</span>
-                    <span className="block truncate max-w-35 sm:max-w-xs">{nextNav.label}</span>
+                    <span className="block max-w-full truncate">{nextNav.label}</span>
                   </div>
                   <Icon name="arrowR" className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </button>

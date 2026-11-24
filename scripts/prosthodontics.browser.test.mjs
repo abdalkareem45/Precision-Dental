@@ -217,7 +217,7 @@ async function twoD(page, lecture, data, fresh = true) {
 async function assessment(page, lecture, data, negative = false) {
   const cases = await jump(page, 'Cases', 4);
   for (const item of lecture.clinicalCases) {
-    await cases.getByRole('button', { name: new RegExp(`^${item.tier}(?: ✓)?$`) }).click();
+    await cases.getByRole('button', { name: new RegExp(`^${item.tier}(?:\\s*✓)?$`) }).click();
     await cases.getByRole('heading', { name: item.title, exact: true }).waitFor();
     const wrong = item.options.find(option => !option.isOptimal);
     const correct = item.options.find(option => option.isOptimal);
