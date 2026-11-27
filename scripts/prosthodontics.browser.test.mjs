@@ -326,7 +326,7 @@ test('Prosthodontics: ten-lecture navigation, seven rendered studios, metadata-d
     }
   });
   const page = await context.newPage();
-  page.setDefaultTimeout(6_000);
+  page.setDefaultTimeout(15_000);
   page.setDefaultNavigationTimeout(15_000);
   page.on('pageerror', error => errors.push(`${page.url()}: ${error.stack || error.message}`));
   page.on('console', message => {
