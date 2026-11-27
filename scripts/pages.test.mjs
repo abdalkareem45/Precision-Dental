@@ -44,7 +44,7 @@ test('landing cards use keyboard-accessible native links', () => {
   for (const module of modules) assert.ok(grid.innerHTML.includes(`./subject.html?id=${module.directory}`));
 });
 
-test('all nine cards navigate through subject.html', () => {
+test('all subject cards navigate through subject.html', () => {
   const context = {
     document: { getElementById: () => ({ innerHTML: '' }) },
     window: { location: { href: '' } }
@@ -96,6 +96,18 @@ test('Prosthodontics advertises the original three lectures and seven studio mod
   vm.createContext(context);
   vm.runInContext(launcher, context);
   assert.equal(vm.runInContext("subjects.find(subject => subject.launchCode === 'pros-main').lectures", context), 10);
+});
+
+test('both Oral Medicine lecture collections stay available as separate ten-lecture tracks', () => {
+  const context = {
+    document: { getElementById: () => ({ innerHTML: '' }) },
+    window: { location: { href: '' } }
+  };
+  vm.createContext(context);
+  vm.runInContext(launcher, context);
+  for (const id of ['oral-med-12-main', 'oral-med-explorer']) {
+    assert.equal(vm.runInContext(`subjects.find(subject => subject.launchCode === '${id}').lectures`, context), 10);
+  }
 });
 
 test('redirects retain the GitHub Pages repository prefix', () => {

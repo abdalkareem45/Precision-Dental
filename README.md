@@ -1,7 +1,7 @@
 # Precision Dental
 
-A static dental-learning website with a shared subject launcher and nine Vite
-apps, deployed to GitHub Pages. All nine apps are maintained as extracted source;
+A static dental-learning website with a shared subject launcher and ten Vite
+apps, deployed to GitHub Pages. All ten apps are maintained as extracted source;
 ZIP files are local backups, not build inputs.
 
 - [Deployment, testing, and security guide](DEPLOYMENT.md)
@@ -24,7 +24,8 @@ without updating the explicit source mapping.
 | Crown & Bridge | `crown/` |
 | Endodontics | `endo-1-main/` |
 | Oral Surgery | `oral surgery/` |
-| Oral Medicine | `oral-med-12-main/oral-med-12-main/` |
+| Oral Medicine — Original Lectures | `oral-med-12-main/oral-med-12-main/` |
+| Oral Medicine Explorer | `oral-med-explorer/` |
 | Orthodontics | `orthodontics-main/orthodontics-main/` |
 | Pediatric Dentistry | `peidatiric-10-main/peidatiric-10-main/` |
 | Periodontics | `perio-1-2-3-4-5-6-7-8--main/perio-1-2-3-4-5-6-7-8--main/` |
@@ -41,8 +42,10 @@ Also commit:
 
 Preserve Endodontics' nine-module app (original Lectures 1–2 plus seven curriculum
 modules) in `endo-1-main/` and the
-fixed Prosthodontics Vite app in `pros-main/`. Do not replace either with a raw
-export. Keep npm `package-lock.json` files for **all nine apps**, not just these
+fixed Prosthodontics Vite app in `pros-main/`. The Oral Medicine Explorer is a
+separate linked track; it preserves the original collection and clearly notes
+that its AI tutor needs a server unavailable on static GitHub Pages. Keep npm
+`package-lock.json` files for **all ten apps**, not just these
 two, and for the build/test tools in `scripts/`.
 
 ## Exclude from commits — do not delete
@@ -99,14 +102,14 @@ the inventory:
 node scripts/list-repository.mjs
 ```
 
-Review `REPOSITORY_CONTENTS.md`, then explicitly stage all nine root folders and
+Review `REPOSITORY_CONTENTS.md`, then explicitly stage all ten root folders and
 supporting files (including the quoted folder with a space):
 
 ```sh
 git --no-optional-locks status
 git --no-pager branch --show-current
 git --no-pager remote -v
-git add -- index.html lunch.js subject.html .gitignore README.md DEPLOYMENT.md REPOSITORY_CONTENTS.md scripts .github .zed crown endo-1-main "oral surgery" oral-med-12-main orthodontics-main peidatiric-10-main perio-1-2-3-4-5-6-7-8--main prevention-1-9--main pros-main
+git add -- index.html lunch.js subject.html .gitignore README.md DEPLOYMENT.md REPOSITORY_CONTENTS.md scripts .github .zed crown endo-1-main "oral surgery" oral-med-12-main oral-med-explorer orthodontics-main peidatiric-10-main perio-1-2-3-4-5-6-7-8--main prevention-1-9--main pros-main
 git --no-pager diff --cached --stat
 git --no-pager diff --cached --name-status
 git --no-pager diff --cached

@@ -20,7 +20,7 @@ test('landing page uses compiled styles and accessible links on mobile', { timeo
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   try {
     await page.goto(`${server.origin}${previewPrefix}index.html`);
-    assert.equal(await page.locator('#subjects-grid > a').count(), 9);
+    assert.equal(await page.locator('#subjects-grid > a').count(), 10);
     assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(250, 248, 243)');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
     const endodontics = page.locator('#subjects-grid > a').filter({ hasText: 'Endodontics' });

@@ -45,3 +45,12 @@ test('splits real modules while preserving lazy entry boundaries and warning def
     assert.equal(group.entriesAware, true);
   }
 });
+
+test('keeps Motion runtime packages together in their own vendor group', () => {
+  const [motionGroup, vendorGroup] = pagesBuildOptions.rolldownOptions.output.codeSplitting.groups;
+  assert.equal(motionGroup.name, 'motion');
+  assert.match('/node_modules/framer-motion/dist/es/index.mjs', motionGroup.test);
+  assert.match('/node_modules/motion-dom/dist/es/index.mjs', motionGroup.test);
+  assert.doesNotMatch('/node_modules/react/index.js', motionGroup.test);
+  assert.equal(vendorGroup.name, 'vendor');
+});

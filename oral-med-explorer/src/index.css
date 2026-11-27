@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Montserrat', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-arabic: 'Tajawal', sans-serif;
+
+    --pd-royal-blue: #1B3A8C;
+    --pd-deep-navy: #0B1F4D;
+    --pd-gold: #C9A24B;
+    --pd-ivory: #FAF8F3;
+    --pd-marble: #E6E8EC;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom subtle scrollbars for dense clinical lab panels */
+.clinical-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.clinical-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.clinical-scroll::-webkit-scrollbar-thumb {
+  background: rgba(27, 58, 140, 0.22);
+  border-radius: 9999px;
+}
+
+.dark .clinical-scroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.32);
+}

@@ -34,17 +34,19 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Validate extracted module sources
         run: python scripts/prepare-modules.py
-      - name: Install and build all nine modules
+      - name: Install and build all ten modules
         run: node scripts/build-pages.mjs
       - name: Type-check maintained subject apps
         run: |
           npm --prefix endo-1-main run lint
+          npm --prefix oral-med-explorer run lint
           npm --prefix pros-main run lint
           npm --prefix orthodontics-main/orthodontics-main run lint
           npm --prefix crown run lint
       - name: Audit maintained apps and build tools
         run: |
           npm audit --prefix endo-1-main --audit-level=high
+          npm audit --prefix oral-med-explorer --audit-level=high
           npm audit --prefix pros-main --audit-level=high
           npm audit --prefix scripts --audit-level=high
           npm audit --prefix crown --audit-level=high
@@ -63,7 +65,7 @@ jobs:
         run: node scripts/node_modules/playwright/cli.js install --with-deps chromium
       # Software-rendered WebGL suites share the runner CPU; avoid competing browsers.
       - name: Test subject entries and lecture interactions
-        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs scripts/prosthodontics.browser.test.mjs
+        run: node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/orthodontics.browser.test.mjs scripts/crown.browser.test.mjs scripts/prosthodontics.browser.test.mjs scripts/oral-medicine-explorer.browser.test.mjs
       - name: Upload static production site only
         uses: actions/upload-pages-artifact@v3
         with:

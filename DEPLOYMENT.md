@@ -6,7 +6,7 @@ inventory. Run commands below from the `website/` repository root.
 
 ## Source layout and public URLs
 
-All nine apps are maintained as extracted source trees, with their
+All ten apps are maintained as extracted source trees, with their
 `package.json` and `package-lock.json` files committed. No ZIP extraction is
 required for setup or CI. `scripts/modules.json` explicitly maps each `source`
 path to its existing public `directory`; these values serve different purposes.
@@ -18,7 +18,8 @@ must keep working.
 | Crown & Bridge | `crown/` | `f367df11cf62a3147e0a171e3f35c4a0333a68f9/` |
 | Endodontics | `endo-1-main/` | `endo-1-main/` |
 | Oral Surgery | `oral surgery/` | `fe3afe4e5c5b6834c6eebbbcda33fefa5ca06160/` |
-| Oral Medicine | `oral-med-12-main/oral-med-12-main/` | `oral-med-12-main/` |
+| Oral Medicine — Original Lectures | `oral-med-12-main/oral-med-12-main/` | `oral-med-12-main/` |
+| Oral Medicine Explorer | `oral-med-explorer/` | `oral-med-explorer/` |
 | Orthodontics | `orthodontics-main/orthodontics-main/` | `8666a648e8a3f5a983a00b19e5cc39db2ef0d29c/` |
 | Pediatric Dentistry | `peidatiric-10-main/peidatiric-10-main/` | `40b5e7081aa8886e9b639e3dff92927c51b00497/` |
 | Periodontics | `perio-1-2-3-4-5-6-7-8--main/perio-1-2-3-4-5-6-7-8--main/` | `perio-1-2-3-4-5-6-7-8--main/` |
@@ -33,6 +34,9 @@ never fall back to old `.build-sources/` contents or local ZIPs.
 Endodontics contains nine integrated modules in `endo-1-main/`. Preserve that
 app rather than replacing it with the old nested copy or raw Lecture 2 export.
 Preserve the fixed Vite app in `pros-main/`, not the raw `pros/` export.
+The Oral Medicine Explorer is an additional linked track; it preserves the
+original collection. Its AI tutor is informational on GitHub Pages because the
+server required to run it is not deployed.
 
 The landing page is `index.html`, loading `./lunch.js` before `</body>`. Its
 keyboard-accessible subject links open `subject.html?id=LAUNCH_CODE`, which
@@ -72,14 +76,14 @@ mapping after reviewing the intended app. Do not use `.build-sources/` as a fix.
 
 `build-pages.mjs` validates sources before replacing the previous generated site.
 It installs the locked build tools if the Tailwind CLI is missing and compiles
-`scripts/landing.css` into `_site/landing.css`. For each of the nine mapped apps,
+`scripts/landing.css` into `_site/landing.css`. For each of the ten mapped apps,
 it then:
 
 1. Uses the explicit `source` path, not the public `directory` as a source lookup.
 2. Applies the narrow compatibility fix and install-script policy from
    `scripts/dependency-fixes.mjs`, then runs
    `npm install --no-audit --no-fund`. npm updates lockfiles normally. Review and
-   commit relevant manifest/lockfile changes for **all nine** maintained apps.
+   commit relevant manifest/lockfile changes for **all ten** maintained apps.
 3. Applies the known Three.js shadow-map/Clock migrations, including Timer
    updates and disposal, and compiles local styles for the standalone
    Periodontics mechanics page. These targeted migrations operate on maintained
@@ -121,6 +125,7 @@ _site/
   endo-1-main/index.html
   fe3afe4e5c5b6834c6eebbbcda33fefa5ca06160/index.html
   oral-med-12-main/index.html
+  oral-med-explorer/index.html
   8666a648e8a3f5a983a00b19e5cc39db2ef0d29c/index.html
   40b5e7081aa8886e9b639e3dff92927c51b00497/index.html
   perio-1-2-3-4-5-6-7-8--main/index.html
@@ -145,7 +150,7 @@ Optional local preview (a long-running server; stop with Ctrl+C):
 python -m http.server 8080 --directory _site
 ```
 
-Open `http://localhost:8080/` and test all nine cards. Also test the actual
+Open `http://localhost:8080/` and test all ten cards. Also test the actual
 repository-prefixed deployed URL; a domain-root preview alone cannot prove that
 runtime paths work under a Pages project prefix.
 
@@ -162,8 +167,9 @@ For automated desktop/mobile browser checks after a complete build:
 npm ci --prefix scripts --no-audit --no-fund
 node scripts/node_modules/playwright/cli.js install chromium
 node endo-1-main/src/lectures/curriculum/tests/run.mjs
-node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs
+node --test --test-concurrency=1 scripts/endodontics.browser.test.mjs scripts/endodontics-curriculum.browser.test.mjs scripts/subjects.browser.test.mjs scripts/oral-medicine-explorer.browser.test.mjs
 npm --prefix endo-1-main run lint
+npm --prefix oral-med-explorer run lint
 npm --prefix pros-main run lint
 ```
 
@@ -175,14 +181,17 @@ node scripts/node_modules/playwright/cli.js install --with-deps chromium
 ```
 
 Browser tests start and stop their own repository-prefixed preview server.
-GitHub Actions runs all nine subject startup checks, mobile landing checks,
-detailed Endodontics interactions, standalone Periodontics checks, and the
-Endodontics/Prosthodontics TypeScript checks before deployment. It also audits
-those two apps and the build tools:
+GitHub Actions runs all ten subject startup checks, mobile landing checks,
+detailed Endodontics and Oral Medicine Explorer interactions, standalone
+Periodontics checks, and the maintained TypeScript checks before deployment.
+It also audits the Endodontics and Oral Medicine Explorer apps, Prosthodontics,
+the Crown app, and build tools:
 
 ```sh
 npm audit --prefix endo-1-main --audit-level=high
+npm audit --prefix oral-med-explorer --audit-level=high
 npm audit --prefix pros-main --audit-level=high
+npm audit --prefix crown --audit-level=high
 npm audit --prefix scripts --audit-level=high
 ```
 
@@ -225,13 +234,13 @@ remote, then stage these explicit paths (the space in `oral surgery` is quoted):
 git --no-optional-locks status
 git --no-pager branch --show-current
 git --no-pager remote -v
-git add -- index.html lunch.js subject.html .gitignore README.md DEPLOYMENT.md REPOSITORY_CONTENTS.md scripts .github .zed crown endo-1-main "oral surgery" oral-med-12-main orthodontics-main peidatiric-10-main perio-1-2-3-4-5-6-7-8--main prevention-1-9--main pros-main
+git add -- index.html lunch.js subject.html .gitignore README.md DEPLOYMENT.md REPOSITORY_CONTENTS.md scripts .github .zed crown endo-1-main "oral surgery" oral-med-12-main oral-med-explorer orthodontics-main peidatiric-10-main perio-1-2-3-4-5-6-7-8--main prevention-1-9--main pros-main
 git --no-pager diff --cached --stat
 git --no-pager diff --cached --name-status
 git --no-pager diff --cached
 ```
 
-Commit the nine complete maintained source trees, including source assets,
+Commit the ten complete maintained source trees, including source assets,
 configuration, package manifests and every app's `package-lock.json`, plus the
 `scripts/` manifest/lockfile and tooling. Do not stage private `.env` files;
 review `.env.example` and any public assets for secrets too.
@@ -319,7 +328,7 @@ This uses official **GitHub Actions artifact deployment**, not a `gh-pages`
 source branch. Only `_site/` is uploaded. Source trees, ZIPs, build scripts,
 dependencies, and `.github/` are not uploaded as source directories. Assets in an
 app's `public/` directory can still be copied into the build, so inspect those
-contents. There is no deploy branch to clean or force-push. Keep all nine source
+contents. There is no deploy branch to clean or force-push. Keep all ten source
 trees and npm lockfiles on the source branch so a clean checkout can rebuild.
 The module build uses `npm install`; committing lockfiles does not make it a
 strict `npm ci` install. Review updates rather than assuming locks never change.
@@ -331,7 +340,7 @@ strict `npm ci` install. Review updates rather than assuming locks never change.
 - Known Vite/esbuild `ERESOLVE`: rerun with the current compatibility scripts;
   do not bypass dependency validation with force flags.
 - Interrupted installation/build: rerun the build. It may take several minutes
-  across all nine apps; review resulting maintained-source/lockfile changes.
+  across all ten apps; review resulting maintained-source/lockfile changes.
 
 ```sh
 python scripts/prepare-modules.py

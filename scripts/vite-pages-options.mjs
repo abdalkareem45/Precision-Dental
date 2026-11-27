@@ -5,6 +5,7 @@ export const pagesBuildOptions = {
     output: {
       codeSplitting: {
         groups: [
+          { name: 'motion', test: /node_modules[\\/](?:motion|framer-motion|motion-dom|motion-utils)[\\/]/, maxSize: 450_000, entriesAware: true },
           { name: 'vendor', test: /node_modules/, maxSize: 350_000, entriesAware: true },
           { name: 'app', test: /[\\/]src[\\/]/, maxSize: 350_000, entriesAware: true },
         ],

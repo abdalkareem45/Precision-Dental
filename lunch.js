@@ -19,10 +19,16 @@ const subjects = [
     launchCode: "fe3afe4e5c5b6834c6eebbbcda33fefa5ca06160"
   },
   {
-    name: "Oral Medicine",
-    lectures: 2,
-    overview: "Herpesviruses, Coxsackievirus, oral mucosal lesions, diagnostic decision trees, and interactive 2D/3D lesion visualizers.",
+    name: "Oral Medicine — Original Lectures",
+    lectures: 10,
+    overview: "The original ten-lecture Oral Medicine collection, preserved alongside the new interactive explorer.",
     launchCode: "oral-med-12-main"
+  },
+  {
+    name: "Oral Medicine Explorer",
+    lectures: 10,
+    overview: "A complementary ten-lecture track with 3D clinical sandboxes, interactive 2D labs, virtual cases, histopathology learning, and assessments.",
+    launchCode: "oral-med-explorer"
   },
   {
     name: "Orthodontics",

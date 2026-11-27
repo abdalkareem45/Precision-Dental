@@ -6,7 +6,7 @@ This lists the current intended source files, not Git's tracked status. It exclu
 dependencies, generated builds, ZIP backups, duplicate extractions, local secrets,
 and npm-unused Bun lockfiles. No files are deleted by this command.
 
-457 files. Regenerate after adding lectures or other files.
+550 files. Regenerate after adding lectures or other files.
 
 ```text
 website/
@@ -276,6 +276,82 @@ website/
 |       +-- package.json
 |       +-- tsconfig.json
 |       \-- vite.config.ts
++-- oral-med-explorer/
+|   +-- public/
+|   |   \-- assets/
+|   |       \-- aistudio/
+|   |           +-- 2025_tmj_4cbe5ae2.pdf
+|   |           +-- ElevenLabs_image_gpt-image-2-5-sunburst_A_brand_guideli_2026-10-13T17_08_46_a60636c3.png
+|   |           +-- FACIAL_PAIN_1_2_LEC_8242a562.pdf
+|   |           +-- lec_1_intro_36165713.pdf
+|   |           +-- lec_7_4f13f7cb.pdf
+|   |           +-- lecture_2_2025_46dabbf2.pdf
+|   |           +-- lecture_3_2025_5193f14e.pdf
+|   |           +-- lecture_4_2025_141bfc41.pdf
+|   |           +-- lecture_5_2024_9e792a21.pdf
+|   |           +-- lecture_7_2025_5a091e97.pdf
+|   |           +-- lecture_sex_2024docx_bac30f50.pdf
+|   |           +-- Pigmented_lesions_of_oral_mucosa_1_6d68ea00.pdf
+|   |           +-- Red_and_White_Lesions_of_the_Oral_Mucosa__2_and_3_ccf66081.pdf
+|   |           +-- The_first_and_second_lecture_of_salivary_gland___baba599a.pdf
+|   |           \-- Ulcerative__Vesicular__Bullous_Lesions_3_and_4_9bc03851.pdf
+|   +-- src/
+|   |   +-- assets/
+|   |   |   \-- images/
+|   |   |       +-- hero_precision_oral_med_1795805794805.jpg
+|   |   |       +-- topic_hematology_coagulation_1795805797541.jpg
+|   |   |       +-- topic_oral_mucosa_lesions_1795805797106.jpg
+|   |   |       +-- topic_orofacial_neuralgia_1795805795788.jpg
+|   |   |       +-- topic_salivary_glands_1795805796401.jpg
+|   |   |       \-- topic_tmj_kinematics_1795805795480.jpg
+|   |   +-- components/
+|   |   |   +-- lecture/
+|   |   |   |   +-- AssessmentCenter.tsx
+|   |   |   |   +-- ClinicalCasesSection.tsx
+|   |   |   |   +-- HistopathologyLab.tsx
+|   |   |   |   +-- InteractiveHero.tsx
+|   |   |   |   +-- KnowledgeMap.tsx
+|   |   |   |   +-- Lab2DSection.tsx
+|   |   |   |   +-- Lab3DSection.tsx
+|   |   |   |   +-- LectureWorkspace.tsx
+|   |   |   |   +-- RevisionCenter.tsx
+|   |   |   |   \-- VisualModulesSection.tsx
+|   |   |   +-- three/
+|   |   |   |   +-- sceneBuilders.ts
+|   |   |   |   \-- ThreeSandboxViewport.tsx
+|   |   |   +-- AiTutorDrawer.tsx
+|   |   |   +-- BrandLogo.tsx
+|   |   |   +-- ErrorBoundary.tsx
+|   |   |   +-- HomeDashboard.tsx
+|   |   |   +-- ThreeCanvasBoundary.tsx
+|   |   |   \-- TopNavbar.tsx
+|   |   +-- data/
+|   |   |   \-- lectures/
+|   |   |       +-- index.ts
+|   |   |       +-- lecture01.ts
+|   |   |       +-- lecture02.ts
+|   |   |       +-- lecture03.ts
+|   |   |       +-- lecture04.ts
+|   |   |       +-- lecture05.ts
+|   |   |       +-- lecture06.ts
+|   |   |       +-- lecture07.ts
+|   |   |       +-- lecture08.ts
+|   |   |       +-- lecture09.ts
+|   |   |       \-- lecture10.ts
+|   |   +-- hooks/
+|   |   |   \-- useCanvasResize.ts
+|   |   +-- store/
+|   |   |   \-- useLearningStore.ts
+|   |   +-- types/
+|   |   |   \-- lecture.ts
+|   |   +-- App.tsx
+|   |   +-- index.css
+|   |   \-- main.tsx
+|   +-- index.html
+|   +-- package-lock.json
+|   +-- package.json
+|   +-- tsconfig.json
+|   \-- vite.config.ts
 +-- orthodontics-main/
 |   \-- orthodontics-main/
 |       +-- public/
@@ -547,10 +623,50 @@ website/
 |       +-- tsconfig.json
 |       \-- vite.config.ts
 +-- pros-main/
+|   +-- public/
+|   |   \-- assets/
+|   |       \-- prostho-studio/
+|   |           +-- pros_4_website_2fa347ec.pdf
+|   |           +-- pros_5_website_7589ac99.pdf
+|   |           +-- pros_6_website_5f6a27ef.pdf
+|   |           +-- pros_7_and_8_website_43ed1976.pdf
+|   |           \-- pros_9_and_10_website_a6e40e0e.pdf
 |   +-- src/
+|   |   +-- lectures/
+|   |   |   \-- simulation-studio/
+|   |   |       +-- components/
+|   |   |       |   +-- ChallengeQuizSection.tsx
+|   |   |       |   +-- ClinicalCasesSection.tsx
+|   |   |       |   +-- ConceptSection.tsx
+|   |   |       |   +-- HeroScene.tsx
+|   |   |       |   +-- PrecisionLogo.tsx
+|   |   |       |   +-- ProgressModal.tsx
+|   |   |       |   +-- StoryboardBlueprintSection.tsx
+|   |   |       |   +-- ThreeDProsthoSandbox.tsx
+|   |   |       |   +-- TopNav.tsx
+|   |   |       |   \-- TwoDSandboxes.tsx
+|   |   |       +-- data/
+|   |   |       |   +-- lectures.ts
+|   |   |       |   +-- lecturesPart1.ts
+|   |   |       |   \-- lecturesPart2.ts
+|   |   |       +-- tests/
+|   |   |       |   +-- run.mjs
+|   |   |       |   \-- suite.tsx
+|   |   |       +-- types/
+|   |   |       |   \-- prosthodontics.ts
+|   |   |       +-- utils/
+|   |   |       |   +-- assets.ts
+|   |   |       |   +-- progress.ts
+|   |   |       |   +-- resources.ts
+|   |   |       |   \-- webglModels.ts
+|   |   |       +-- App.tsx
+|   |   |       +-- index.css
+|   |   |       +-- index.ts
+|   |   |       \-- README.md
 |   |   +-- App.tsx
 |   |   +-- index.css
-|   |   \-- main.tsx
+|   |   +-- main.tsx
+|   |   \-- SubjectApp.tsx
 |   +-- .env.example
 |   +-- .gitignore
 |   +-- index.html
@@ -572,12 +688,14 @@ website/
 |   +-- module-source.mjs
 |   +-- module-source.test.mjs
 |   +-- modules.json
+|   +-- oral-medicine-explorer.browser.test.mjs
 |   +-- orthodontics.browser.test.mjs
 |   +-- package-lock.json
 |   +-- package.json
 |   +-- pages.test.mjs
 |   +-- prepare-modules.py
 |   +-- preview-server.mjs
+|   +-- prosthodontics.browser.test.mjs
 |   +-- subjects.browser.test.mjs
 |   +-- vite-pages-options.mjs
 |   \-- vite-pages-options.test.mjs

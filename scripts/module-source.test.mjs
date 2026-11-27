@@ -8,11 +8,11 @@ import { resolveModuleSource } from './module-source.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
-test('all nine public routes map to existing extracted Vite apps', async () => {
+test('all ten public routes map to existing extracted Vite apps', async () => {
   const modules = JSON.parse(await readFile(path.join(root, 'scripts/modules.json'), 'utf8'));
-  assert.equal(modules.length, 9);
-  assert.equal(new Set(modules.map(module => module.directory)).size, 9);
-  assert.equal(new Set(modules.map(module => module.source)).size, 9);
+  assert.equal(modules.length, 10);
+  assert.equal(new Set(modules.map(module => module.directory)).size, 10);
+  assert.equal(new Set(modules.map(module => module.source)).size, 10);
   for (const module of modules) {
     assert.equal(await resolveModuleSource(root, module), path.resolve(root, module.source));
   }
